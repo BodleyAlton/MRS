@@ -7,13 +7,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <p class="navbar-brand" href="#">MedRecSys</p>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('about') }}">About</a></li>
-            <li><a href="{{ url_for('secure_page') }}">Secure Page</a> </li>
+            {% if current_user.type == 'doctor'%}
+              <li><a href="{{ url_for('phistory') }}">Update Patient History</a></li>
+              <li><a href="{{ url_for('search') }}">Patient Search</a></li>
+            {% elif current_user.type == 'nurse'%}
+              <li><a href="{{ url_for('update') }}">Update Patient Care Record</a></li>
+              <li><a href="{{ url_for('search') }}">Patient Search</a></li>
+            {%elif current_user.type == 'secretary'%}
+              <li><a href="{{ url_for('newPatient') }}">Register Patient</a></li>
+            {%endif%}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}

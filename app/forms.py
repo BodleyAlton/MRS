@@ -55,3 +55,12 @@ class phistoryForm(FlaskForm):
 class testResults(FlaskForm):
     test_name= StringField('Test Name',validators=[InputRequired()])
     artifact = StringField('Artifact')
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[InputRequired()])
+    password = PasswordField('Password', validators=[InputRequired()])
+
+class Search(FlaskForm):
+    diagnosis = StringField('Diagnosis', validators=[InputRequired()])
+    fdate= DateField('From Date',validators=[InputRequired()])
+    tdate= DateField('To Date',validators=[InputRequired()])
