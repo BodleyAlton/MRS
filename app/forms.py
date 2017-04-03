@@ -38,7 +38,7 @@ class doctorForm(FlaskForm):
     dpassword= PasswordField('Password',validators=[InputRequired()])
 
 class updateForm(FlaskForm):
-    date = DateField ('D.O.B',format='%d/%m/%Y', validators=[InputRequired()])
+    date = StringField ('D.O.B', validators=[InputRequired()])
     vitals_id= IntegerField('Vitals Id',validators=[InputRequired()])
     Reading= IntegerField('Reading',validators=[InputRequired()])
     d_eid = IntegerField('Doctor\'s ID',validators=[InputRequired()])
@@ -62,5 +62,12 @@ class LoginForm(FlaskForm):
 
 class Search(FlaskForm):
     diagnosis = StringField('Diagnosis', validators=[InputRequired()])
-    fdate= DateField('From Date',validators=[InputRequired()])
-    tdate= DateField('To Date',validators=[InputRequired()])
+    fdate= StringField('From Date',validators=[InputRequired()])
+    tdate= StringField('To Date',validators=[InputRequired()])
+
+class Alergyform(FlaskForm):
+    p_trn = IntegerField('Patient\'s TRN', validators=[InputRequired()])
+
+class Carefm(FlaskForm):
+    p_trn = StringField('Patient\'s TRN', validators=[InputRequired()])
+    date= StringField('Date',validators=[InputRequired()])

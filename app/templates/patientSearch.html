@@ -1,0 +1,13 @@
+{%extends 'base.html' %}
+{% block main%}
+<h2>Search</h2>
+<h4>Patient test results Search</h4>
+<form action="{{ url_for('test') }}" method="post">
+  {{ form.csrf_token }}
+  <div class="form-group">
+    {{ form.p_trn.label }}
+    {{ form.p_trn(class='form-control', placeholder="Enter patient\'s TRN") }}
+  </div>
+  <button type="submit" name="submit" class="btn btn-primary btn-block">Search</button>
+</form>
+{%endblock%}

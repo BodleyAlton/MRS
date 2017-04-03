@@ -1,0 +1,21 @@
+{%extends 'base.html' %}
+{%include "flash_messages.html"%}
+{% block main %}
+  <div class="login-form center-block">
+    <h2>Search</h2>
+    <h4>Patient Care Search</h4>
+    {% include 'flash_messages.html' %}
+    <form action="{{ url_for('patient_care') }}" method="post">
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.p_trn.label }}
+        {{ form.p_trn(class='form-control', placeholder="Enter the patient's TRN") }}
+      </div>
+      <div class="form-group">
+        {{ form.date.label }}
+        {{ form.date(class='form-control',type="date", placeholder="Enter date") }}
+      </div>
+      <button type="submit" name="submit" class="btn btn-primary btn-block">Search</button>
+    </form>
+  </div>
+{% endblock %}
