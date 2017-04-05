@@ -82,6 +82,7 @@ create table doctor(
   df_name varchar(15),
   dl_name varchar(15),
   dcontact varchar(14),
+  type varchar (10),
   address_1 varchar(20),
   address_2 varchar(20),
   city varchar(20),
@@ -181,3 +182,8 @@ create table patient_history(
   foreign key(tr_id) references test_result(tr_id) on delete cascade on update cascade,
   foreign key(d_eid) references doctor(d_eid) on delete cascade on update cascade
 );
+
+
+
+
+
