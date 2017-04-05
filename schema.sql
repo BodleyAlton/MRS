@@ -170,6 +170,7 @@ create table patient_history(
   pro_id int,
   t_id int,
   tr_id int,
+  d_eid int (7),
   date_ date,
   primary key(code,p_trn,d_id,pro_id,t_id,tr_id),
   foreign key(code) references disease(code) on delete cascade on update cascade,
@@ -177,5 +178,6 @@ create table patient_history(
   foreign key(d_id) references diagnosis(d_id) on delete cascade on update cascade,
   foreign key(pro_id) references cprocedure(pro_id) on delete cascade on update cascade,
   foreign key(t_id) references treatment(t_id) on delete cascade on update cascade,
-  foreign key(tr_id) references test_result(tr_id) on delete cascade on update cascade
+  foreign key(tr_id) references test_result(tr_id) on delete cascade on update cascade,
+  foreign key(d_eid) references doctor(d_eid) on delete cascade on update cascade
 );
