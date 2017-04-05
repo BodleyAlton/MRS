@@ -100,6 +100,7 @@ create table residents(
 create table intern(
   d_eid int(7),
   dept varchar(10),
+  type varchar(10),
   primary key(d_eid, dept),
   foreign key (d_eid) references doctor(d_eid) on delete cascade on update cascade
 );
